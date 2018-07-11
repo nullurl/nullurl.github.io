@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="基础状态汇总，通用性全局状态整理归纳，方便在不同页面设计直接复用，减少重复工作，对照自查避免遗漏。">
+<meta name="description" content="基础状态汇总，通用性全局状态整理归纳，方便在不同页面设计直接复用，减少重复工作，对照自查避免遗漏。 常见页面加载方式汇总，针对不同的加载内容设计合适的加载策略，满足不同状态下的产品体验需求。">
 <meta name="keywords" content="PM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="APP产品设计中的全局状态汇总">
+<meta property="og:title" content="APP产品设计中的全局状态&amp;常见加载方式汇总">
 <meta property="og:url" content="https://nullurl.github.io/2018/07/06/20180706/index.html">
 <meta property="og:site_name" content="Nullurl">
-<meta property="og:description" content="基础状态汇总，通用性全局状态整理归纳，方便在不同页面设计直接复用，减少重复工作，对照自查避免遗漏。">
+<meta property="og:description" content="基础状态汇总，通用性全局状态整理归纳，方便在不同页面设计直接复用，减少重复工作，对照自查避免遗漏。 常见页面加载方式汇总，针对不同的加载内容设计合适的加载策略，满足不同状态下的产品体验需求。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://nullurl.oss-cn-beijing.aliyuncs.com/18-7-5/49012872.jpg">
-<meta property="og:updated_time" content="2018-07-10T08:36:22.372Z">
+<meta property="og:image" content="http://nullurl.oss-cn-beijing.aliyuncs.com/18-7-11/16735540.jpg">
+<meta property="og:updated_time" content="2018-07-11T06:29:28.833Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="APP产品设计中的全局状态汇总">
-<meta name="twitter:description" content="基础状态汇总，通用性全局状态整理归纳，方便在不同页面设计直接复用，减少重复工作，对照自查避免遗漏。">
-<meta name="twitter:image" content="http://nullurl.oss-cn-beijing.aliyuncs.com/18-7-5/49012872.jpg">
+<meta name="twitter:title" content="APP产品设计中的全局状态&amp;常见加载方式汇总">
+<meta name="twitter:description" content="基础状态汇总，通用性全局状态整理归纳，方便在不同页面设计直接复用，减少重复工作，对照自查避免遗漏。 常见页面加载方式汇总，针对不同的加载内容设计合适的加载策略，满足不同状态下的产品体验需求。">
+<meta name="twitter:image" content="http://nullurl.oss-cn-beijing.aliyuncs.com/18-7-11/16735540.jpg">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>APP产品设计中的全局状态汇总 | Nullurl</title>
+  <title>APP产品设计中的全局状态&常见加载方式汇总 | Nullurl</title>
   
 
 
@@ -296,7 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">APP产品设计中的全局状态汇总</h1>
+          <h1 class="post-title" itemprop="name headline">APP产品设计中的全局状态&常见加载方式汇总</h1>
         
 
         <div class="post-meta">
@@ -356,7 +356,10 @@
       
 
       
-        <p>基础状态汇总，通用性全局状态整理归纳，方便在不同页面设计直接复用，减少重复工作，对照自查避免遗漏。</p>
+        <ul>
+<li>基础状态汇总，通用性全局状态整理归纳，方便在不同页面设计直接复用，减少重复工作，对照自查避免遗漏。</li>
+<li>常见页面加载方式汇总，针对不同的加载内容设计合适的加载策略，满足不同状态下的产品体验需求。</li>
+</ul>
 <a id="more"></a> 
 <h2 id="空加载"><a href="#空加载" class="headerlink" title="空加载"></a>空加载</h2><blockquote>
 <p>空加载属于数据从服务端拉取前的一个中间状态，主要告知用户数据处于加载状态中请耐心等待。由于使用场景和触发逻辑存在一定差异，一般需要区分原生页、模块和webview页面进行分别设计。</p>
@@ -381,7 +384,7 @@
 <p>设计参考：1）当已加载数据的倒数第2条出现在屏幕区域时，触发上拉加载状态，同时显示加载中；2）当服务端已告知没有更多数据时，在底部显示对应提示；3）由于网络或服务器异常等原因导致数据返回失败，则在底部提示告知加载失败，同时提供“重试”按钮方便用户进行重试。</p>
 <h2 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h2><p>触发场景：用于页面数据会根据时间和状态进行变化的动态页面，用户主动对页面进行下拉操作时触发。PS：使用长链接对数据进行实时更新的页面不需要用户主动触发刷新操作，故不在此范畴，具体可参考微信、钉钉的聊天会话等页面。</p>
 <p>设计参考：1）用户下拉页面时，在头部显示下拉引导，当下拉区间未达到可刷新距离时继续引导下拉；2）当下拉区间达到可刷新距离，则引导用户松开刷新；3）松开后页面收回到最小可刷新距离处后进行刷新，同时显示加载中（响应上限参考空加载进行设计），若加载成功则更新页面内容，若加载失败则toast提升对应的失败说明。为增加响应的趣味性，可在icon上融合APP吉祥物进行设计。</p>
-<p><img src="http://nullurl.oss-cn-beijing.aliyuncs.com/18-7-5/49012872.jpg" alt="列表页模块（UED元素）"></p>
+<p><img src="http://nullurl.oss-cn-beijing.aliyuncs.com/18-7-11/16735540.jpg" alt="APP常见页面数据加载模式"></p>
 
       
     </div>
